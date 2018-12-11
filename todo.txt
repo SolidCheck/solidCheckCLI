@@ -1,0 +1,48 @@
+list
+
+install <name>
+install <audit-all>
+install <linting-all>
+install <other-all>
+
+audit -engine=all-available
+       ...
+      -engine=oyente
+       ...
+      -engine=mythril, oyente
+       ...
+      -pathToSolidityFile="/myContracts/example.sol"
+      -options="/myContracts/audit-options.json"
+      -outputFolder="/myContracts/auditResult"
+
+lint -engine=surya
+     -engine=all-available
+
+
+
+quit
+
+
+---
+
+* command descriptions need better spacing
+* enhance terminal with colors and emoji
+* make tool generate example files
+* take solidity folder as input, instead of single file
+* make it interactive; eg: type start, prompt for tools to use, prompt for each other option
+
+* pack in homebrew: https://www.veracode.com/blog/secure-development/distribute-your-java-app-brew
+
+---
+
+/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula
+
+aspectj.rb
+
+brew install --interactive all-audit
+
+  def install
+    libexec.install Dir["*"]
+    bin.write_jar_script libexec/"all-audit-1.0-SNAPSHOT.jar", "all-audit"
+  end
+
